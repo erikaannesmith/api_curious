@@ -1,0 +1,39 @@
+<p>Welcome, <%= @member.name %>!</p>
+<img src=<%= @member.avatar_url %>>
+<h4>Basic Info</h4>
+<ul>
+  <li>Starred Repos: 
+  (<%= @member.starred_repos.count %>)
+    <% @member.starred_repos.each do |repo| %>
+    <ul>
+      Name: <%= repo.name %>
+      <li>Owner: <%= repo.owner %></li>
+      <li><%= repo.html_url %></li>
+      </ul>
+    <% end %></li>
+    </li>
+
+  <li>Following: (<%= @member.following.count %>)</li>
+  <ul>
+    <% @member.following.each do |following| %>
+      <li><%= following.name %><br/>
+      <img src=<%= following.avatar_url %> height="42" width="42" %></li>
+    <% end %>
+  </ul>
+
+  <li>Followers: (<%= @member.followers.count%>)</li>
+  <ul>
+    <% @member.followers.each do |follower| %>
+      <li><%= follower.name %><br/>
+      <img src=<%= follower.avatar_url %> height="42" width="42" %></li>
+    <% end %>
+  </ul>
+
+  <li>Organizations: (<%= @member.organizations.count %>)</li>
+  <ul>
+    <% @member.organizations.each do |organization| %>
+      <li><%= organization.name %></li>
+    <% end %>  
+  </ul>
+
+</ul>
